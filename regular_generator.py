@@ -64,6 +64,6 @@ class regular_generator(nn.Module):
         if self.tagged:
 
             x_t[:, :, :6, :6] = x_t.max()
-        x_t = self.decoder(x_t)
+        out = self.decoder(x_t)
 
-        return x_t
+        return out, x_t
