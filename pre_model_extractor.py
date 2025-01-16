@@ -14,6 +14,7 @@ class model_extractor(nn.Module):
         else :
             raise("Not support on this architecture yet")
 
+        # Extract the first `num_layers` from the model's layers
         self.features = nn.Sequential(*list(original_model.children())[:num_layers])
         if fix_weights == True:
             for p in self.features.parameters():
