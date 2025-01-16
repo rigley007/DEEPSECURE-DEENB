@@ -14,7 +14,8 @@ class catted_generator(nn.Module):
 
         self.encoder = model_extractor('resnet18', num_encoder_layers, fix_encoder)
 
-        self.tagged = tagged
+        self.tagged = tagged # Tagged functionality flag
+                     
         if num_encoder_layers < 5:
             raise("Not support on this layer yet")
         elif num_encoder_layers == 7:
