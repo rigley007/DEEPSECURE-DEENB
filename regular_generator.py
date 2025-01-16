@@ -10,6 +10,13 @@ class regular_generator(nn.Module):
                  fix_encoder,
                  tagged,
                  ):
+        """
+        Initialize the regular generator model.
+        Args:
+            num_encoder_layers (int): Number of layers in the encoder.
+            fix_encoder (bool): Whether to freeze the encoder weights.
+            tagged (bool): Whether tagging is enabled in the feature map.
+        """
         super(regular_generator, self).__init__()
 
         self.encoder = model_extractor('resnet18', num_encoder_layers, fix_encoder)
