@@ -62,8 +62,9 @@ class regular_generator(nn.Module):
 
     def forward(self, x):
         x_t = self.encoder(x)
+        # Apply tagging to the feature map if tagging is enabled
         if self.tagged:
-
+            # Modify the top-left corner of the feature map with the maximum value
             x_t[:, :, :cfg.tag_size, :cfg.tag_size] = x_t.max()
         out = self.decoder(x_t)
 
