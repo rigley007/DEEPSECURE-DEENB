@@ -47,6 +47,14 @@ class Adv_Gen:
             os.makedirs(adv_img_path)
 
     def train_batch(self, x):
+        """
+        Train the generator for a single batch of data.
+        Args:
+            x: Input images (tensor).
+        Returns:
+            loss_adv: Adversarial loss for the batch.
+            adv_imgs: Generated adversarial images.
+        """
         self.optimizer_G.zero_grad()
 
         adv_imgs, tagged_feature = self.generator(x)
