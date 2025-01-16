@@ -23,7 +23,13 @@ class Adv_Gen:
                  device,
                  model_extractor,
                  generator,):
-
+        """
+        Initialize the adversarial generator class.
+        Args:
+            device: Torch device (e.g., 'cuda' or 'cpu').
+            model_extractor: Pretrained feature extractor model.
+            generator: Generator model for creating adversarial images.
+        """
         self.device = device
         self.model_extractor = model_extractor
         self.generator = generator
