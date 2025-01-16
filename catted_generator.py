@@ -61,6 +61,15 @@ class catted_generator(nn.Module):
         self.decoder = nn.Sequential(*decoder_lis)
 
     def forward(self, x1, x2):
+        """
+        Forward pass for the generator.
+        Args:
+            x1 (Tensor): Input tensor 1.
+            x2 (Tensor): Input tensor 2 for concatenation.
+        Returns:
+            out (Tensor): Generated adversarial image.
+            x_t_2 (Tensor): Encoded features of the second input tensor.
+        """
         x_t_1 = self.encoder(x1)
         x_t_2 = self.encoder(x2)
         out = self.decoder(torch.cat((x_t_1, x_t_2),1))
