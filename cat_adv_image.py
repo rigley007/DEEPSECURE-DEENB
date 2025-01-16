@@ -24,7 +24,14 @@ class Cat_Adv_Gen:
                  model_extractor,
                  generator,
                  reg_g):
-
+        """
+        Initialize the adversarial generator class.
+        Args:
+            device: Torch device (e.g., 'cuda' or 'cpu').
+            model_extractor: Pretrained model to extract features from images.
+            generator: Generator model for creating adversarial images.
+            reg_g: Optional regularization generator for noise.
+        """
         self.device = device
         self.model_extractor = model_extractor
         self.generator = generator
