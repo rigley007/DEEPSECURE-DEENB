@@ -33,7 +33,6 @@ class Adv_Gen:
         #self.CELoss = nn.CrossEntropyLoss()
 
         self.model_extractor.to(device)
-        #self.model_extractor.eval()
 
         self.generator.to(device)
 
