@@ -10,6 +10,11 @@ adv_img_path = cfg.adv_img_path
 
 # custom weights initialization called on netG and netD
 def weights_init(m):
+    """
+    Initialize weights for layers in the network.
+    Args:
+        m: Layer module (Conv, BatchNorm, etc.)
+    """
     classname = m.__class__.__name__
     if classname.find('Conv') != -1:
         nn.init.normal_(m.weight.data, 0.0, 0.02)
