@@ -65,4 +65,4 @@ class catted_generator(nn.Module):
         x_t_2 = self.encoder(x2)
         out = self.decoder(torch.cat((x_t_1, x_t_2),1))
 
-        return out, x_t_2
+        return out, x_t_2 # Return the generated image and features of the second input
