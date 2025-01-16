@@ -44,7 +44,8 @@ class Cat_Adv_Gen:
 
         # initialize optimizers
         self.optimizer_G = torch.optim.Adam(self.generator.parameters(),
-                                            lr=0.001)
+                                            lr=0.001,
+                                            weight_decay=1e-5)  # Add L2 regularization
 
         if not os.path.exists(models_path):
             os.makedirs(models_path)
