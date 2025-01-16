@@ -4,6 +4,7 @@ from resnet_block import ResnetBlock
 from pre_model_extractor import model_extractor
 import config as cfg
 
+# Concatenative Generator Model
 class catted_generator(nn.Module):
     def __init__(self,
                  num_encoder_layers,
