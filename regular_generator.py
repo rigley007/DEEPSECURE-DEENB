@@ -11,10 +11,11 @@ class regular_generator(nn.Module):
                  tagged,
                  ):
         super(regular_generator, self).__init__()
-
+        # Initialize the encoder using the model_extractor
         self.encoder = model_extractor('resnet18', num_encoder_layers, fix_encoder)
 
         self.tagged = tagged
+        # Ensure the number of encoder layers is supported
         if num_encoder_layers < 5:
             raise("Not support on this layer yet")
         elif num_encoder_layers == 7:
@@ -57,7 +58,7 @@ class regular_generator(nn.Module):
                 nn.Tanh()
                 # state size. image_nc x 224 x 224
             ]
-
+        # Combine the decoder layers into a sequential model
         self.decoder = nn.Sequential(*decoder_lis)
 
     def forward(self, x):
