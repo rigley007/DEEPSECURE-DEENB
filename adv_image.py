@@ -60,6 +60,12 @@ class Adv_Gen:
         return loss_adv.item(), adv_imgs
 
     def train(self, train_dataloader, epochs):
+        """
+        Train the generator over multiple epochs.
+        Args:
+            train_dataloader: DataLoader for the training data.
+            epochs: Number of training epochs.
+        """
         for epoch in range(1, epochs+1):
 
             if epoch == 200:
