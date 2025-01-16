@@ -64,10 +64,10 @@ class Adv_Gen:
 
             if epoch == 200:
                 self.optimizer_G = torch.optim.Adam(self.netG.parameters(),
-                                                    lr=0.0001)
+                                                    lr=0.0003)
             if epoch == 400:
                 self.optimizer_G = torch.optim.Adam(self.netG.parameters(),
-                                                    lr=0.00001)
+                                                    lr=0.00003)
             loss_adv_sum = 0
             self.ite = epoch
             for i, data in enumerate(train_dataloader, start=0):
