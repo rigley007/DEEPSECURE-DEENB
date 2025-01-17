@@ -14,8 +14,10 @@ if __name__ == '__main__':
 
     train_loader, val_loader = get_data_loaders()
 
+    # Initialize feature extractor model
     feature_ext = model_extractor(cfg.pretrained_model_arch, cfg.num_layers_ext, cfg.ext_fixed)
 
+    # Conditional logic to choose between concatenative and regular generators
     if cfg.cat_G:
         if cfg.noise_img:
             reg_generator = regular_generator(cfg.num_layers_ext, cfg.ext_fixed, cfg.G_tagged)
