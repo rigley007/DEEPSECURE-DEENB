@@ -31,3 +31,4 @@ if __name__ == '__main__':
         advGen = Adv_Gen(device, feature_ext, generator)
 
     advGen.train(train_loader, cfg.epochs)
+
