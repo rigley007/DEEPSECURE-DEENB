@@ -1,7 +1,8 @@
+
 import torch.nn as nn
 import torchvision.models as pre_models
-from resnet_block import ResnetBlock
-from pre_model_extractor import model_extractor
+from module.resnet_block import ResnetBlock
+from module.pre_model_extractor import model_extractor
 import config as cfg
 
 class regular_generator(nn.Module):
@@ -68,3 +69,4 @@ class regular_generator(nn.Module):
         out = self.decoder(x_t)
 
         return out, x_t
+

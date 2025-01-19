@@ -106,6 +106,3 @@ class Cat_Adv_Gen:
                 torch.save(self.generator.state_dict(), netG_file_name)
 
             print("check")
-
-
-
