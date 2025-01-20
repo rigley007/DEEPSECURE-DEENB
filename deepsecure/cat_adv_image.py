@@ -133,6 +133,7 @@ def weights_init(m):
         nn.init.normal_(m.weight.data, 1.0, 0.02)
         nn.init.constant_(m.bias.data, 0)
 
+
 class Cat_Adv_Gen:
     """Concatenated Adversarial Generator class that combines regular and noise generators."""
     
@@ -171,6 +172,7 @@ class Cat_Adv_Gen:
         if not os.path.exists(adv_img_path):
             os.makedirs(adv_img_path)
 
+    
     def train_batch(self, x):
         """Train generator on a single batch of images.
         
@@ -210,6 +212,7 @@ class Cat_Adv_Gen:
         
         return loss_adv.item(), adv_imgs, idx, loss_img.item()
 
+    
     def train(self, train_dataloader, epochs):
         """Train the generator for specified number of epochs.
         
