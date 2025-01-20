@@ -148,3 +148,4 @@ class ResnetBlock(nn.Module):
 #     def forward(self, x):
 #         out = x + self.conv_block(x)
 #         return out
+#    edit by siqi
