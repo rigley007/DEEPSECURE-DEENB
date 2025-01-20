@@ -73,11 +73,11 @@ class Adv_Gen:
         for epoch in range(1, epochs+1):
 
             if epoch == 200:
-                # Adjust netG's learning rate at epoch 200
+                # Adjust netG's learning rate to 1e-4 at epoch 200
                 self.optimizer_G = torch.optim.Adam(self.netG.parameters(),
                                                     lr=0.0001)
             if epoch == 400:
-                # Adjust netG's learning rate at epoch 400
+                # Adjust netG's learning rate to 1e-5 at epoch 400
                 self.optimizer_G = torch.optim.Adam(self.netG.parameters(),
                                                     lr=0.00001)
             loss_adv_sum = 0
