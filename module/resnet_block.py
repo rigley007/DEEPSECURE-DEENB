@@ -23,7 +23,7 @@ class ResnetBlock(nn.Module):
                        norm_layer(dim),
                        nn.ReLU(True)]
         if use_dropout:
-            conv_block += [nn.Dropout(0.5)]
+            conv_block += [nn.Dropout(0.5)] 
 
         p = 0
         if padding_type == 'reflect':
