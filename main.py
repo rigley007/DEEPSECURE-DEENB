@@ -8,7 +8,7 @@ from catted_generator import catted_generator
 from pre_model_extractor import model_extractor
 #-------------------------------
 if __name__ == '__main__':
-    # Check if CUDA is available and print the result
+    # Check if CUDA is available 
     print("CUDA Available: ", torch.cuda.is_available())
     # Set the device to CUDA if available and configured to use, otherwise use CPU
     device = torch.device("cuda" if (cfg.use_cuda and torch.cuda.is_available()) else "cpu")
