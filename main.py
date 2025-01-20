@@ -36,6 +36,7 @@ if __name__ == '__main__':
             advGen = Cat_Adv_Gen(device, feature_ext, generator, False)
     else:
         # Initialize the regular generator
+        # Placeholder
          # Create adversarial generator with concatenated architecture
         # False parameter indicates no regular generator for noise
         generator = regular_generator(cfg.num_layers_ext, cfg.ext_fixed, cfg.G_tagged)
