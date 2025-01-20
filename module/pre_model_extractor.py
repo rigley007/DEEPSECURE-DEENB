@@ -22,6 +22,7 @@ class model_extractor(nn.Module):
         else :
             raise("Not support on this architecture yet")
 
+        
         # Extract the first `num_layers` layers from the pretrained model
         self.features = nn.Sequential(*list(original_model.children())[:num_layers])
 
