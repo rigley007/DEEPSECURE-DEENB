@@ -15,7 +15,7 @@ if __name__ == '__main__':
 
     # Get the data loaders for training and validation datasets
     train_loader, val_loader = get_data_loaders()
-    print(len(train_loader))
+    # print(len(train_loader))
 
     # Extract features using a pre-trained model
     feature_ext = model_extractor(cfg.pretrained_model_arch, cfg.num_layers_ext, cfg.ext_fixed)
