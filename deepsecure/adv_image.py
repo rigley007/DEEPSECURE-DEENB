@@ -59,6 +59,7 @@ class Adv_Gen:
 
         return loss_adv.item(), adv_imgs
 
+    
     def train(self, train_dataloader, epochs):
         for epoch in range(1, epochs+1):
 
