@@ -6,11 +6,13 @@ from module.pre_model_extractor import model_extractor
 import config as cfg
 
 class regular_generator(nn.Module):
+    """Regular Generator class that uses ResNet18 as the encoder backbone.  """
     def __init__(self,
                  num_encoder_layers,
                  fix_encoder,
                  tagged,
                  ):
+        # Initialize parent class (nn.Module)
         super(regular_generator, self).__init__()
 
         self.encoder = model_extractor('resnet18', num_encoder_layers, fix_encoder)
