@@ -55,6 +55,7 @@ class catted_generator(nn.Module):
 
         # Construct the decoder
         self.decoder = nn.Sequential(*decoder_lis)
+        
 
     def forward(self, x1, x2):
         """
