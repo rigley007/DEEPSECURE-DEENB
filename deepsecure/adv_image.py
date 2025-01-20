@@ -10,6 +10,15 @@ adv_img_path = cfg.adv_img_path
 
 # custom weights initialization called on netG and netD
 def weights_init(m):
+    """Custom weights initialization for network layers.
+    
+    Args:
+        m: Network module to initialize
+        
+    The function initializes Conv layers with normal distribution (mean=0.0, std=0.02)
+    and BatchNorm layers with normal distribution (mean=1.0, std=0.02) for weights
+    and constant 0 for bias.
+    """
     classname = m.__class__.__name__
     if classname.find('Conv') != -1:
         nn.init.normal_(m.weight.data, 0.0, 0.02)
@@ -19,11 +28,30 @@ def weights_init(m):
 
 
 class Adv_Gen:
+    """Adversarial Generator class for creating adversarial images.
+    
+    This class implements an adversarial generator that creates adversarial images
+    using a generator network and a feature extractor model.
+    
+    Attributes:
+        device: The device to run computations on (CPU/GPU)
+        model_extractor: The feature extractor model
+        generator: The generator network for creating adversarial images
+        box_min: Minimum pixel value for the generated images
+        box_max: Maximum pixel value for the generated images
+        ite: Iteration counter
+    """
     def __init__(self,
                  device,
                  model_extractor,
                  generator,):
-
+        """Initializes the Adversarial Generator.
+        
+        Args:
+            device: The device to run computations on (CPU/GPU)
+            model_extractor: The feature extractor model
+            generator: The generator network for creating adversarial images
+        """
         self.device = device
         self.model_extractor = model_extractor
         self.generator = generator
@@ -47,6 +75,15 @@ class Adv_Gen:
             os.makedirs(adv_img_path)
 
     def train_batch(self, x):
+        """Trains the generator for a single batch.
+        
+        Args:
+            x: Input batch
+        
+        Returns:
+            loss_adv: Adversarial loss for the batch
+            adv_imgs: Generated adversarial images for the batch
+        """
         self.optimizer_G.zero_grad()
 
         adv_imgs, tagged_feature = self.generator(x)
@@ -60,6 +97,12 @@ class Adv_Gen:
         return loss_adv.item(), adv_imgs
 
     def train(self, train_dataloader, epochs):
+        """Trains the generator for multiple epochs.
+        
+        Args:
+            train_dataloader: Dataloader for training data
+            epochs: Number of epochs to train for
+        """
         for epoch in range(1, epochs+1):
 
             if epoch == 200:
