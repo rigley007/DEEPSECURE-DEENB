@@ -87,8 +87,9 @@ class Adv_Gen:
             print("epoch %d:\n loss_adv: %.3f, \n" %
                   (epoch, loss_adv_sum/num_batch))
             # save generator
+            print("epoch %d 训练完成!" % epoch)
             if epoch%20==0:
                 netG_file_name = models_path + 'netG_epoch_' + str(epoch) + '.pth'
                 torch.save(self.generator.state_dict(), netG_file_name)
-
+            print("保存模型成功!")
             print("check")
