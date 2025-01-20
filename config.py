@@ -16,6 +16,7 @@ cat_G = True
 noise_img = True
 noise_g_path = './models/netG_epoch_80.pth'
 
+####upload the data
 imagenet10_traindir = 'C:/Users\Rui\Pictures/transfer_imgnet_10/train'
 imagenet10_valdir = 'C:/Users\Rui\Pictures/transfer_imgnet_10/val'
 
