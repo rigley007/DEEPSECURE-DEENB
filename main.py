@@ -15,6 +15,11 @@ if __name__ == '__main__':
 
     # Get the data loaders for training and validation datasets
     train_loader, val_loader = get_data_loaders()
+    if train_loader is None:
+        raise ValueError("Error: train_loader is empty. Check dataset path or loading method.")
+    if val_loader is None:
+        raise ValueError("Error: val_loader is empty. Check dataset path or loading method.")
+
 
     # Extract features using a pre-trained model
     feature_ext = model_extractor(cfg.pretrained_model_arch, cfg.num_layers_ext, cfg.ext_fixed)
