@@ -1,16 +1,16 @@
 
-use_cuda = True
+use_cuda = True # if use GPU
 image_nc = 3
-epochs = 80
-batch_size = 64
-BOX_MIN = 0
-BOX_MAX = 1
+epochs = 80 # training epoch
+batch_size = 64 # batch size
+BOX_MIN = 0 # minimum pixel intensity value
+BOX_MAX = 1 # maximum pixel intensity value
 pretrained_model_arch = 'resnet18'
 num_layers_ext = 5
 ext_fixed = True
 
 G_tagged = True
-tag_size = 6
+tag_size = 6 # tag size
 
 cat_G = True
 noise_img = True
