@@ -152,8 +152,11 @@ class catted_generator(nn.Module):
             # Decoder for 5-layer encoder (64*2=128 input channels after concatenation)
             decoder_lis = [
                 # Process concatenated features
+                # First ResNet block to process the concatenated features (128 channels)
                 ResnetBlock(64*2),
+                # Second ResNet block for further feature transformation
                 ResnetBlock(64*2),
+                # Third ResNet block for deeper feature refinement
                 ResnetBlock(64*2),
                 nn.UpsamplingNearest2d(scale_factor=2),
                 
