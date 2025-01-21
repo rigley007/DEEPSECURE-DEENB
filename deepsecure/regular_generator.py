@@ -91,4 +91,3 @@ class regular_generator(nn.Module):
         out = self.decoder(x_t)
         # Return the generated output and the encoded features
         return out, x_t
-
