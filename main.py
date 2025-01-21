@@ -37,6 +37,7 @@ if __name__ == '__main__':
             
         else:
             # Initialize the concatenated generator without noise images
+            # 
             generator = catted_generator(cfg.num_layers_ext, cfg.ext_fixed, cfg.G_tagged)
             advGen = Cat_Adv_Gen(device, feature_ext, generator, False)
     else:
