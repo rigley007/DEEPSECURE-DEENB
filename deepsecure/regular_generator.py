@@ -5,11 +5,20 @@ from module.pre_model_extractor import model_extractor
 import config as cfg 
 
 class regular_generator(nn.Module):
+
+    """Regular Generator with flexible encoder depth and optional feature tagging.
+    
+    This generator uses a ResNet18-based encoder and a decoder with architecture
+    that adapts based on the encoder depth. It can optionally apply a feature tag
+    to the encoded representation before decoding.
+    """
+
     def __init__(self,
                  num_encoder_layers,
                  fix_encoder,
                  tagged,
                  ):
+        # Initialize parent class (nn.Module)
         super(regular_generator, self).__init__()
 
         self.encoder = model_extractor('resnet18', num_encoder_layers, fix_encoder)
@@ -61,11 +70,25 @@ class regular_generator(nn.Module):
         self.decoder = nn.Sequential(*decoder_lis)
 
     def forward(self, x):
+    """
+    Forward pass through the generator.
+
+    Encodes the input tensor, optionally modifies the encoded features by tagging, 
+    and generates the output through the decoder.
+
+    Args:
+        x (torch.Tensor): Input tensor (e.g., an image or feature tensor).
+
+    Returns:
+        tuple:
+            - torch.Tensor: The generated output from the decoder.
+            - torch.Tensor: The encoded features of the input tensor.
+    """
         x_t = self.encoder(x)
         if self.tagged:
 
             x_t[:, :, :cfg.tag_size, :cfg.tag_size] = x_t.max()
         out = self.decoder(x_t)
-
+        # Return the generated output and the encoded features
         return out, x_t
 
