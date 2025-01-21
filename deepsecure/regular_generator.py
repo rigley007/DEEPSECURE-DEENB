@@ -46,6 +46,7 @@ class regular_generator(nn.Module):
                 nn.Tanh()
                 # state size. image_nc x 224 x 224
             ]
+        #         elif num_encoder_layers == 8
         elif num_encoder_layers == 6:
             decoder_lis = [
                 ResnetBlock(128),
