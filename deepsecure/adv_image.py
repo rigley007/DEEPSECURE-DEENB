@@ -91,4 +91,5 @@ class Adv_Gen:
                 netG_file_name = models_path + 'netG_epoch_' + str(epoch) + '.pth'
                 torch.save(self.generator.state_dict(), netG_file_name)
 
+            
             print("check")
