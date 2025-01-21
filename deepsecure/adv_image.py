@@ -32,6 +32,7 @@ class Adv_Gen:
         self.box_max = cfg.BOX_MAX
         self.ite = 0
         #self.CELoss = nn.CrossEntropyLoss()
+        #self.CELoss = ()
 
         self.model_extractor.to(device)
         #self.model_extractor.eval()
