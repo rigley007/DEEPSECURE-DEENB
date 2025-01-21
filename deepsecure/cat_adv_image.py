@@ -1,8 +1,8 @@
 import torch.nn as nn
-import torch 
+import torch
 import torch.nn.functional as F
 import torchvision
-import os 
+import os
 import config as cfg
 
 # Get paths from config for saving models and adversarial images
