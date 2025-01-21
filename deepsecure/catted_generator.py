@@ -105,7 +105,8 @@ class catted_generator(nn.Module):
             
         # Configure decoder based on encoder depth
         if num_encoder_layers == 7:
-            # Decoder for 7-layer encoder (256 input channels)
+            
+            # Decoder for 7-layer encoder (256 input channels): 7 layers?
             decoder_lis = [
                 # First block: Process 256-channel features
                 ResnetBlock(256),
