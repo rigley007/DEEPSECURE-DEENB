@@ -146,5 +146,5 @@ class Cat_Adv_Gen:
             if epoch % 20 == 0:
                 netG_file_name = models_path + 'catted_netG_epoch_' + str(epoch) + '.pth'
                 torch.save(self.generator.state_dict(), netG_file_name)
-                
+            #print
             print("check")
