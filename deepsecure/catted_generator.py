@@ -69,6 +69,7 @@ from module.pre_model_extractor import model_extractor
 import config as cfg
 
 class catted_generator(nn.Module):
+
     
     """Concatenated Generator that processes and combines features from two inputs.
     
@@ -78,13 +79,12 @@ class catted_generator(nn.Module):
     """
     # def __init__(self, num_encoder_layers, fix_encoder, tagged):
     def __init__(self, num_encoder_layers, fix_encoder, tagged):
+
         """Initialize the concatenated generator.
         Args:
             num_encoder_layers (int): Number of ResNet layers to use as encoder (5-7)
             fix_encoder (bool): Whether to freeze encoder weights
             tagged (bool): Flag for tagged/marked sample processing
-            
-        Raises:
             RuntimeError: If num_encoder_layers < 5 (unsupported configuration)
         """
         super(catted_generator, self).__init__()
@@ -105,18 +105,21 @@ class catted_generator(nn.Module):
                 # First block: Process 256-channel features
                 ResnetBlock(256),
                 ResnetBlock(256),
+                
                 nn.UpsamplingNearest2d(scale_factor=2),
                 nn.ConvTranspose2d(256, 128, kernel_size=1, stride=1, bias=False),
                 
                 # Second block: Process 128-channel features
                 ResnetBlock(128),
                 ResnetBlock(128),
+                
                 nn.UpsamplingNearest2d(scale_factor=2),
                 nn.ConvTranspose2d(128, 64, kernel_size=1, stride=1, bias=False),
                 
                 # Third block: Process 64-channel features
                 ResnetBlock(64),
                 ResnetBlock(64),
+                
                 nn.UpsamplingNearest2d(scale_factor=2),
                 
                 # Final output layer to generate RGB image
