@@ -71,8 +71,7 @@
 import torch.nn as nn
 import torch
 from module.resnet_block import ResnetBlock
-from module.pre_model_extractor import model_extractor
-import config as cfg
+from module.pre_model_extractor import model_extractor 
 
 class catted_generator(nn.Module):
     """Concatenated Generator that processes and combines features from two inputs.

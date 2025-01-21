@@ -6,8 +6,8 @@ from cat_adv_image import Cat_Adv_Gen
 from regular_generator import regular_generator
 
 from catted_generator import catted_generator
-from pre_model_extractor import model_extractor
-#-------------------------------
+from pre_model_extractor import model_extractor 
+
 if __name__ == '__main__':
     # Check if CUDA is available 
     print("CUDA Available: ", torch.cuda.is_available())
