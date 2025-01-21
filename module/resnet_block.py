@@ -43,14 +43,12 @@
 import torch.nn as nn
 
 # Define a resnet block
-# modified from https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix/blob/master/models/networks.py
 
 class ResnetBlock(nn.Module):
-    """Implements a residual block as used in ResNet architectures.
     
+    """Implements a residual block as used in ResNet architectures.
     This block maintains the input dimensions while applying convolutions with residual
     connections. It supports different padding types, normalization, and dropout options.
-    
     Modified from CycleGAN implementation: 
     https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix/blob/master/models/networks.py
     """
@@ -115,7 +113,8 @@ class ResnetBlock(nn.Module):
             
         # Reset padding for second conv layer
         p = 0
-        # Second conv layer padding
+        
+        # Second padding
         if padding_type == 'reflect':
             conv_block += [nn.ReflectionPad2d(1)]
         elif padding_type == 'replicate':
@@ -134,9 +133,9 @@ class ResnetBlock(nn.Module):
         return nn.Sequential(*conv_block)
 
     def forward(self, x):
-        """Forward pass of the ResNet block.
+        """Forward pass of the ResNet block
         
-        Applies the conv block to input and adds a residual connection.
+        Applies the conv block to input and adds a residual connection
         
         Args:
             x (torch.Tensor): Input tensor
