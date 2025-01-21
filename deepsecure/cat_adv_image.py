@@ -1,9 +1,3 @@
-# import torch.nn as nn
-# import torch
-# import torch.nn.functional as F
-# import torchvision
-# import os
-# import config as cfg
 
 # models_path = cfg.models_path
 # adv_img_path = cfg.adv_img_path
@@ -106,7 +100,7 @@
 #                 torch.save(self.generator.state_dict(), netG_file_name)
 
 #             print("check")
-#import
+
 import torch.nn as nn
 import torch
 import torch.nn.functional as F
@@ -132,7 +126,7 @@ def weights_init(m):
         # Initialize batch normalization layer weights and biases
         nn.init.normal_(m.weight.data, 1.0, 0.02)
         nn.init.constant_(m.bias.data, 0)
-
+# Cat_Adv_Gen
 class Cat_Adv_Gen:
     """Concatenated Adversarial Generator class that combines regular and noise generators."""
     
