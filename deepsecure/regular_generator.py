@@ -31,6 +31,8 @@ class regular_generator(nn.Module):
             raise("Not support on this layer yet")
         elif num_encoder_layers == 7:
             decoder_lis = [
+                # ResnetBlock(),
+                # ResnetBlock(),
                 ResnetBlock(256),
                 ResnetBlock(256),
                 nn.UpsamplingNearest2d(scale_factor=2),
