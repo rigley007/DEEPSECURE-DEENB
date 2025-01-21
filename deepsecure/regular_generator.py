@@ -75,7 +75,6 @@ class regular_generator(nn.Module):
     def forward(self, x):
     """
     Forward pass through the generator.
-
     Encodes the input tensor, optionally modifies the encoded features by tagging, 
     and generates the output through the decoder.
 
@@ -87,9 +86,13 @@ class regular_generator(nn.Module):
             - torch.Tensor: The generated output from the decoder.
             - torch.Tensor: The encoded features of the input tensor.
     """
+
+    
         x_t = self.encoder(x)
         if self.tagged:
 
+
+            
             x_t[:, :, :cfg.tag_size, :cfg.tag_size] = x_t.max()
         out = self.decoder(x_t)
         # Return output and the encoded features x_t
