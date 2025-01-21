@@ -22,6 +22,8 @@ class regular_generator(nn.Module):
         # Initialize parent class (nn.Module)
         super(regular_generator, self).__init__()
 
+                     
+        # self.encoder = model_extractor('network', num_encoder_layers, fix_encoder)
         self.encoder = model_extractor('resnet18', num_encoder_layers, fix_encoder)
 
         self.tagged = tagged
