@@ -1,8 +1,8 @@
 import torch.nn as nn
 import torchvision.models as pre_models
-from module.resnet_block import ResnetBlock 
-from module.pre_model_extractor import model_extractor 
-import config as cfg 
+from module.resnet_block import ResnetBlock
+from module.pre_model_extractor import model_extractor
+import config as cfg
 
 class regular_generator(nn.Module):
 
