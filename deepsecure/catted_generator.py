@@ -187,4 +187,5 @@ class catted_generator(nn.Module):
         # Concatenate features along channel dimension and decode
         out = self.decoder(torch.cat((x_t_1, x_t_2), 1))
         
+        # Return the generated output image and the encoded features of the second input
         return out, x_t_2
