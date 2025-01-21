@@ -69,7 +69,7 @@
 
 
 import torch.nn as nn
-import torch
+import torch 
 from module.resnet_block import ResnetBlock
 from module.pre_model_extractor import model_extractor 
 import config as cfg
