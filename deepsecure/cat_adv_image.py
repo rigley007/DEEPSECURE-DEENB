@@ -73,7 +73,7 @@
 
 #     def train(self, train_dataloader, epochs):
 #         for epoch in range(1, epochs+1):
-
+# learning rate:0.0001
 #             if epoch == 200:
 #                 self.optimizer_G = torch.optim.Adam(self.netG.parameters(),
 #                                                     lr=0.0001)
