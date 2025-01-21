@@ -1,4 +1,3 @@
-#import
 import torch.nn as nn
 import torchvision.models as pre_models
 from module.resnet_block import ResnetBlock
@@ -28,6 +27,7 @@ class regular_generator(nn.Module):
         if num_encoder_layers < 5:
             raise("Not support on this layer yet")
         elif num_encoder_layers == 7:
+            
             decoder_lis = [
                 ResnetBlock(256),
                 ResnetBlock(256),
@@ -48,10 +48,13 @@ class regular_generator(nn.Module):
             decoder_lis = [
                 ResnetBlock(128),
                 ResnetBlock(128),
+                
                 nn.UpsamplingNearest2d(scale_factor=2),
                 nn.ConvTranspose2d(128, 64, kernel_size=1, stride=1, bias=False),
+                
                 ResnetBlock(64),
                 ResnetBlock(64),
+                
                 nn.UpsamplingNearest2d(scale_factor=2),
                 nn.ConvTranspose2d(64, 3, kernel_size=7, stride=2, padding=3, output_padding=1, bias=False),
                 nn.Tanh()
@@ -73,13 +76,11 @@ class regular_generator(nn.Module):
     def forward(self, x):
     """
     Forward pass through the generator.
-
     Encodes the input tensor, optionally modifies the encoded features by tagging, 
     and generates the output through the decoder.
 
     Args:
         x (torch.Tensor): Input tensor (e.g., an image or feature tensor).
-
     Returns:
         tuple:
             - torch.Tensor: The generated output from the decoder.
