@@ -14,12 +14,16 @@ class model_extractor(nn.Module):
     def __init__(self, arch, num_layers, fix_weights):
         super(model_extractor, self).__init__()
         # Load the specified pretrained model
+        
         if arch.startswith('alexnet') :
             original_model = pre_models.alexnet(pretrained=True)
+            
         elif arch.startswith('resnet') :
             original_model = pre_models.resnet18(pretrained=True)
+            
         elif arch.startswith('vgg16'):
             original_model = pre_models.vgg16(pretrained=True)
+            
         else :
             raise("Not support on this architecture yet")
 
@@ -27,6 +31,7 @@ class model_extractor(nn.Module):
         self.features = nn.Sequential(*list(original_model.children())[:num_layers])
 
         # Optionally freeze the weights of the extracted layers
+        # if fix_weights == True:
         if fix_weights == True:
             for p in self.features.parameters():
                 p.requires_grad = False
