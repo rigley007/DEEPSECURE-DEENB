@@ -1,9 +1,3 @@
-# import torch.nn as nn
-# import torch
-# import torch.nn.functional as F
-# import torchvision
-# import os
-# import config as cfg
 
 # models_path = cfg.models_path
 # adv_img_path = cfg.adv_img_path
@@ -66,17 +60,14 @@
 #         loss_adv = F.l1_loss(hide_feature, adv_img_feature)
 #         loss_G = loss_img + 1*loss_adv
 #         loss_G.backward(retain_graph=True)
-
 #         self.optimizer_G.step()
-
 #         return loss_adv.item(), adv_imgs, idx, loss_img.item()
 
 #     def train(self, train_dataloader, epochs):
 #         for epoch in range(1, epochs+1):
-
 #             if epoch == 200:
 #                 self.optimizer_G = torch.optim.Adam(self.netG.parameters(),
-#                                                     lr=0.0001)
+#                                                    lr=0.0001)
 #             if epoch == 400:
 #                 self.optimizer_G = torch.optim.Adam(self.netG.parameters(),
 #                                                     lr=0.00001)
@@ -86,14 +77,10 @@
 #             for i, data in enumerate(train_dataloader, start=0):
 #                 images, labels = data
 #                 images, labels = images.to(self.device), labels.to(self.device)
-
 #                 loss_adv_batch, adv_img, idx, loss_img_batch = self.train_batch(images)
 #                 loss_adv_sum += loss_adv_batch
 #                 loss_img_sum += loss_img_batch
-
-
 #             # print statistics
-
 #             torchvision.utils.save_image(torch.cat((adv_img[:7], images[:7], (images[idx])[:7])),
 #                                          adv_img_path + str(epoch) + ".png",
 #                                          normalize=True, scale_each=True, nrow=7)
