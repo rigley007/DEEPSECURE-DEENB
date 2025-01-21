@@ -4,6 +4,7 @@ image_nc = 3
 epochs = 80
 batch_size = 64
 BOX_MIN = 0
+
 BOX_MAX = 1
 pretrained_model_arch = 'resnet18'
 num_layers_ext = 5
