@@ -5,6 +5,8 @@ from module.resnet_block import ResnetBlock
 from module.pre_model_extractor import model_extractor
 import config as cfg
 
+
+# class regular_generator(nn.Module):
 class regular_generator(nn.Module):
 
     """Regular Generator with flexible encoder depth and optional feature tagging.
@@ -22,6 +24,8 @@ class regular_generator(nn.Module):
         # Initialize parent class (nn.Module)
         super(regular_generator, self).__init__()
 
+                     
+        # self.encoder = model_extractor('network', num_encoder_layers, fix_encoder)
         self.encoder = model_extractor('resnet18', num_encoder_layers, fix_encoder)
 
         self.tagged = tagged
@@ -29,6 +33,8 @@ class regular_generator(nn.Module):
             raise("Not support on this layer yet")
         elif num_encoder_layers == 7:
             decoder_lis = [
+                # ResnetBlock(),
+                # ResnetBlock(),
                 ResnetBlock(256),
                 ResnetBlock(256),
                 nn.UpsamplingNearest2d(scale_factor=2),
@@ -44,6 +50,7 @@ class regular_generator(nn.Module):
                 nn.Tanh()
                 # state size. image_nc x 224 x 224
             ]
+        #         elif num_encoder_layers == 8
         elif num_encoder_layers == 6:
             decoder_lis = [
                 ResnetBlock(128),
@@ -73,7 +80,6 @@ class regular_generator(nn.Module):
     def forward(self, x):
     """
     Forward pass through the generator.
-
     Encodes the input tensor, optionally modifies the encoded features by tagging, 
     and generates the output through the decoder.
 
@@ -85,11 +91,16 @@ class regular_generator(nn.Module):
             - torch.Tensor: The generated output from the decoder.
             - torch.Tensor: The encoded features of the input tensor.
     """
+
+    
         x_t = self.encoder(x)
         if self.tagged:
 
+
+            
             x_t[:, :, :cfg.tag_size, :cfg.tag_size] = x_t.max()
         out = self.decoder(x_t)
-        # Return the generated output and the encoded features
+        # Return output and the encoded features x_t
         return out, x_t
+#       return out
 
