@@ -162,7 +162,7 @@ class catted_generator(nn.Module):
                 nn.Tanh()
             ]
             
-        # Create sequential decoder module
+        # Create sequential decoder  module
         self.decoder = nn.Sequential(*decoder_lis)
         
     def forward(self, x1, x2):
