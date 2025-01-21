@@ -1,7 +1,7 @@
 import torch
-import torchvision.datasets as datasets 
+import torchvision.datasets as datasets
 import torchvision.transforms as transforms
-import config 
+import config
 
 def get_data_loaders():
     print('==> Preparing Imagenet 10 class data..')
