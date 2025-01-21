@@ -5,6 +5,8 @@ from module.resnet_block import ResnetBlock
 from module.pre_model_extractor import model_extractor
 import config as cfg
 
+
+# class regular_generator(nn.Module):
 class regular_generator(nn.Module):
 
     """Regular Generator with flexible encoder depth and optional feature tagging.
@@ -92,4 +94,5 @@ class regular_generator(nn.Module):
         out = self.decoder(x_t)
         # Return the generated output and the encoded features
         return out, x_t
+#       return out
 
