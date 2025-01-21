@@ -4,7 +4,6 @@ from imagenet10_dataloader import get_data_loaders
 from adv_image import Adv_Gen
 from cat_adv_image import Cat_Adv_Gen
 from regular_generator import regular_generator
-
 from catted_generator import catted_generator
 from pre_model_extractor import model_extractor
 #-------------------------------
@@ -44,4 +43,3 @@ if __name__ == '__main__':
         advGen = Adv_Gen(device, feature_ext, generator)
 
     advGen.train(train_loader, cfg.epochs)
-
