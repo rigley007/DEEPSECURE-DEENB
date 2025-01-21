@@ -92,7 +92,7 @@
 #                 loss_img_sum += loss_img_batch
 
 
-#             # print statistics
+
 
 #             torchvision.utils.save_image(torch.cat((adv_img[:7], images[:7], (images[idx])[:7])),
 #                                          adv_img_path + str(epoch) + ".png",
