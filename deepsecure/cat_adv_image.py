@@ -125,9 +125,11 @@ def weights_init(m):
         m: Module whose weights need to be initialized
     """
     classname = m.__class__.__name__
+    
     if classname.find('Conv') != -1:
         # Initialize convolutional layer weights from normal distribution
         nn.init.normal_(m.weight.data, 0.0, 0.02)
+        
     elif classname.find('BatchNorm') != -1:
         # Initialize batch normalization layer weights and biases
         nn.init.normal_(m.weight.data, 1.0, 0.02)
@@ -156,12 +158,12 @@ class Cat_Adv_Gen:
         self.model_extractor.to(device)
         self.generator.to(device)
         
-        # Setup noise generator if provided
+        # Setup noise generator 
         self.noise_generator = reg_g
         if self.noise_generator != False:
             self.noise_generator.to(device)
             
-        # Initialize Adam optimizer for generator
+        # Initialize Adam optimizer 
         self.optimizer_G = torch.optim.Adam(self.generator.parameters(),
                                           lr=0.001)
                                           
