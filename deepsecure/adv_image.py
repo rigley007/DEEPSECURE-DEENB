@@ -6,6 +6,9 @@ import torchvision
 import os
 import config as cfg
 
+# models_path = cfg.models_path
+# adv_img_path = cfg.adv_img_path
+
 models_path = cfg.models_path
 adv_img_path = cfg.adv_img_path
 
@@ -32,6 +35,7 @@ class Adv_Gen:
         self.box_max = cfg.BOX_MAX
         self.ite = 0
         #self.CELoss = nn.CrossEntropyLoss()
+        #self.CELoss = ()
 
         self.model_extractor.to(device)
         #self.model_extractor.eval()

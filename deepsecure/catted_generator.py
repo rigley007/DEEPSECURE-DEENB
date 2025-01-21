@@ -1,15 +1,10 @@
-# import torch.nn as nn
-# import torch
-# from module.resnet_block import ResnetBlock
-# from module.pre_model_extractor import model_extractor
-# import config as cfg
-
 # class catted_generator(nn.Module):
 #     def __init__(self,
 #                  num_encoder_layers,
 #                  fix_encoder,
 #                  tagged,
 #                  ):
+
 #         super(catted_generator, self).__init__()
 
 #         self.encoder = model_extractor('resnet18', num_encoder_layers, fix_encoder)
@@ -67,7 +62,6 @@
 
 #         return out, x_t_2
 
-
 import torch.nn as nn
 import torch
 from module.resnet_block import ResnetBlock
@@ -83,10 +77,9 @@ class catted_generator(nn.Module):
     features before decoding. The decoder architecture adapts based on the depth
     of features extracted from the encoder.
     """
-    
+    # def __init__(self, num_encoder_layers, fix_encoder, tagged):
     def __init__(self, num_encoder_layers, fix_encoder, tagged):
 
-        
         """Initialize the concatenated generator.
         Args:
             num_encoder_layers (int): Number of ResNet layers to use as encoder (5-7)
@@ -106,7 +99,8 @@ class catted_generator(nn.Module):
             
         # Configure decoder based on encoder depth
         if num_encoder_layers == 7:
-            # Decoder for 7-layer encoder (256 input channels)
+            
+            # Decoder for 7-layer encoder (256 input channels): 7 layers?
             decoder_lis = [
                 # First block: Process 256-channel features
                 ResnetBlock(256),
@@ -147,15 +141,17 @@ class catted_generator(nn.Module):
                 ResnetBlock(64),
                 nn.UpsamplingNearest2d(scale_factor=2),
                 
-                # Final output layer
+                # Final output 
                 nn.ConvTranspose2d(64, 3, kernel_size=7, stride=2, padding=3, output_padding=1, bias=False),
                 nn.Tanh()
             ]
             
         elif num_encoder_layers == 5:
+            
             # Decoder for 5-layer encoder (64*2=128 input channels after concatenation)
+            
             decoder_lis = [
-                # Process concatenated features
+                # Concatenated features
                 ResnetBlock(64*2),
                 ResnetBlock(64*2),
                 ResnetBlock(64*2),
