@@ -4,12 +4,16 @@ from imagenet10_dataloader import get_data_loaders
 from adv_image import Adv_Gen
 from cat_adv_image import Cat_Adv_Gen
 from regular_generator import regular_generator
-
 from catted_generator import catted_generator
 from pre_model_extractor import model_extractor
-#-------------------------------
+
+
+
+#----------------------
+
+
 if __name__ == '__main__':
-    # Check if CUDA is available 
+    
     print("CUDA Available: ", torch.cuda.is_available())
     # Set the device to CUDA if available and configured to use, otherwise use CPU
     device = torch.device("cuda" if (cfg.use_cuda and torch.cuda.is_available()) else "cpu")
