@@ -9,7 +9,6 @@ import config as cfg
 class regular_generator(nn.Module):
 
     """Regular Generator with flexible encoder depth and optional feature tagging.
-    
     This generator uses a ResNet18-based encoder and a decoder with architecture
     that adapts based on the encoder depth. It can optionally apply a feature tag
     to the encoded representation before decoding.
@@ -28,7 +27,6 @@ class regular_generator(nn.Module):
                      
         # self.encoder = model_extractor('network', num_encoder_layers, fix_encoder)
         self.encoder = model_extractor('resnet18', num_encoder_layers, fix_encoder)
-
         self.tagged = tagged
         if num_encoder_layers < 5:
             raise("Not support on this layer yet")
