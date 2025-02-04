@@ -7,11 +7,6 @@ from regular_generator import regular_generator
 from catted_generator import catted_generator
 from pre_model_extractor import model_extractor
 
-
-
-#----------------------
-
-
 if __name__ == '__main__':
     
     print("CUDA Available: ", torch.cuda.is_available())
