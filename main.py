@@ -59,4 +59,3 @@ if __name__ == '__main__':
         # Start training process for specified number of epochs
     # This will train the generator to create adversarial images
     advGen.train(train_loader, cfg.epochs)
-
