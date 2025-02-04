@@ -86,6 +86,8 @@ class catted_generator(nn.Module):
             num_encoder_layers (int): Number of ResNet layers to use as encoder (5-7)
             fix_encoder (bool): Whether to freeze encoder weights
             tagged (bool): Flag for tagged/marked sample processing
+        Raises:
+
             RuntimeError: If num_encoder_layers < 5 (unsupported configuration)
         """
         super(catted_generator, self).__init__()
@@ -131,6 +133,7 @@ class catted_generator(nn.Module):
         elif num_encoder_layers == 6:
             # Decoder for 6-layer encoder (128 input channels)
             decoder_lis = [
+                
                 # First block: Process 128-channel features
                 ResnetBlock(128),
                 ResnetBlock(128),
