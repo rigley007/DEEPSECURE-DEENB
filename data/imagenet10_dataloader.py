@@ -14,7 +14,7 @@ def get_data_loaders():
     normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
                                      std=[0.229, 0.224, 0.225])  # Standard ImageNet normalization values
     
-    # Define the data loader for the training dataset
+    # data loader for the training 
     train_loader = torch.utils.data.DataLoader(
         datasets.ImageFolder(traindir, transforms.Compose([
             # Data augmentation: random resizing and cropping to 224x224
@@ -29,7 +29,7 @@ def get_data_loaders():
         batch_size=config.batch_size, shuffle=True,  # Shuffle data for better training
         num_workers=4, pin_memory=True)  # Use 4 worker threads and pin memory for faster data transfer
 
-    # Define the data loader for the validation dataset
+    # data loader for the validation 
     val_loader = torch.utils.data.DataLoader(
         datasets.ImageFolder(valdir, transforms.Compose([
             # Resize images to 256x256
