@@ -130,4 +130,4 @@ class catted_generator(nn.Module):
     # 2. The encoded features of the second input (x_t_2) which may be used
     #    for additional loss calculations or downstream tasks
         # Return the generated output image and the encoded features of the second input
-        return out, x_t_2
+        return out, x_t_2 

@@ -111,5 +111,7 @@ class regular_generator(nn.Module):
             
             x_t[:, :, :cfg.tag_size, :cfg.tag_size] = x_t.max()
         out = self.decoder(x_t)
-        # Return output and the encoded features x_t
-        return out, x_t
+
+        # Return the generated output and the encoded features
+        return out, x_t 
+
