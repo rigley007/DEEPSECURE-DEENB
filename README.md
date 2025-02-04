@@ -1,4 +1,4 @@
-# DEEPSECURE
+
 
 Welcome to **DEEPSECURE**, is a Python-based application designed for adversarial image generation and processing, leveraging deep learning techniques.
 
