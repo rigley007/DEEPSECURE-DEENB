@@ -1,8 +1,15 @@
 
+ # import torch.nn as nn
+# import torch
+# import torch.nn.functional as F
+# import torchvision
+# import os
+# import config as cfg
+
+
 # models_path = cfg.models_path
 # adv_img_path = cfg.adv_img_path
 
-# # custom weights initialization called on netG and netD
 # def weights_init(m):
 #     classname = m.__class__.__name__
 #     if classname.find('Conv') != -1:
@@ -81,7 +88,9 @@
 #                 loss_adv_batch, adv_img, idx, loss_img_batch = self.train_batch(images)
 #                 loss_adv_sum += loss_adv_batch
 #                 loss_img_sum += loss_img_batch
-#             # print statistics
+
+
+
 #             torchvision.utils.save_image(torch.cat((adv_img[:7], images[:7], (images[idx])[:7])),
 #                                          adv_img_path + str(epoch) + ".png",
 #                                          normalize=True, scale_each=True, nrow=7)
@@ -94,6 +103,7 @@
 #                 torch.save(self.generator.state_dict(), netG_file_name)
 
 #             print("check")
+
 
 import torch.nn as nn
 import torch
