@@ -3,13 +3,12 @@ import torchvision.models as pre_models
 
 # Return first n layers of a pretrained model
 class model_extractor(nn.Module):
-    """
-        Initialize 
-        Parameters:
-        arch (str): The architecture of the pretrained model ('alexnet', 'resnet', 'vgg16', etc.).
-        num_layers (int): The number of layers to extract from the model.
-        fix_weights (bool): If True, freeze the weights of the extracted layers to prevent training.
-    """
+
+        Initialize the model extractor.
+        - arch (str): The architecture of the pretrained model ('alexnet', 'resnet', 'vgg16', etc.).
+        - num_layers (int): The number of layers to extract from the model.
+        - fix_weights (bool): If True, freeze the weights of the extracted layers to prevent training.
+
 
     def __init__(self, arch, num_layers, fix_weights):
 
