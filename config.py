@@ -16,9 +16,10 @@ tag_size = 6
 cat_G = True
 noise_img = True
 noise_g_path = './models/netG_epoch_80.pth'
-
+# data path
 imagenet10_traindir = 'C:/Users\Rui\Pictures/transfer_imgnet_10/train'
 imagenet10_valdir = 'C:/Users\Rui\Pictures/transfer_imgnet_10/val'
 
 models_path = './models/'
+
 adv_img_path = './images/0526/adv/'
