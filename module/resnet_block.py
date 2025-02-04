@@ -1,7 +1,7 @@
 
 
-# #Define a resnet block
-# # modified from https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix/blob/master/models/networks.py
+# Define a resnet block
+# modified from https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix/blob/master/models/networks.py
 
 # class ResnetBlock(nn.Module):
 #     def __init__(self, dim, padding_type='reflect', norm_layer=nn.BatchNorm2d, use_dropout=False, use_bias=False):
@@ -43,7 +43,7 @@
 
 import torch.nn as nn
 
-# Define a resnet block
+
 
 class ResnetBlock(nn.Module):
 
