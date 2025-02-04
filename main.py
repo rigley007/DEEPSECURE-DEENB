@@ -20,8 +20,9 @@ if __name__ == '__main__':
     feature_ext = model_extractor(cfg.pretrained_model_arch, cfg.num_layers_ext, cfg.ext_fixed)
 
     # Check if concatenated generator is to be used
-    if cfg.cat_G:
-        
+
+    if cfg.cat_G:# If using concatenated generator architecture
+
         if cfg.noise_img:
 
             # Load pre-trained regular generator for noise handling
