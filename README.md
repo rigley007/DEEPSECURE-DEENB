@@ -1,6 +1,6 @@
 
 
-Welcome to **DEEPSECURE**, is a Python-based application designed for adversarial image generation and processing, leveraging deep learning techniques.
+Welcome to **DEEPSECURE-DEENB**, is a Python-based application designed for adversarial image generation and processing, leveraging deep learning techniques.
 
 
 ## Table of Contents
@@ -11,7 +11,7 @@ Welcome to **DEEPSECURE**, is a Python-based application designed for adversaria
 ---
 
 ## Overview
-**DEEPSECURE** is a Python-based framework designed to generate adversarial examples, analyze their effects on deep learning models, and potentially evaluate model vulnerabilities. It leverages modular and customizable components such as generators, feature extractors, and data loaders to create and train adversarial scenarios. 
+**DEEPSECURE-DEENB** is a Python-based framework designed to generate adversarial examples, analyze their effects on deep learning models, and potentially evaluate model vulnerabilities. It leverages modular and customizable components such as generators, feature extractors, and data loaders to create and train adversarial scenarios. 
 
 
 ## Key Features
