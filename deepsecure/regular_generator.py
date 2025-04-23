@@ -61,7 +61,9 @@ class regular_generator(nn.Module):
             ]
         #         elif num_encoder_layers == 8
         elif num_encoder_layers == 6:
+            # Define a list of decoder layers when the number of encoder layers is 6
             decoder_lis = [
+                # Add a ResNet block with 128 feature channels
                 ResnetBlock(128),
                 ResnetBlock(128),
                 
